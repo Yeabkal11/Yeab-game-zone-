@@ -4,7 +4,8 @@ services:
     name: yeab-game-zone-api
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn -w 4 -k uvicorn.workers.UvicornWorker api.main:app"
+    # --- THIS LINE IS CORRECTED ---
+    startCommand: "gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT api.main:app"
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         fromSecret: TELEGRAM_BOT_TOKEN
@@ -43,4 +44,4 @@ databases:
   - name: yeab-game-db
     databaseName: yeab_ludo
     user: yeab_ludo_user
-    plan: free # Or your preferred plan
+    plan: free
