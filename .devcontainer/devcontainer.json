@@ -1,0 +1,33 @@
+{
+    "name": "Yeab Game Zone Bot",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md",
+                "bot/bot.py",
+                "api/main.py"
+            ]
+        },
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.linting.pylintEnabled": true,
+                "python.linting.enabled": true,
+                "python.formatting.provider": "black"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "visualstudioexptteam.vscodeintellicode",
+                "littlefoxteam.vscode-python-test-adapter",
+                "njpwerner.autodocstring"
+            ]
+        }
+    },
+    "postCreateCommand": "pip3 install -r requirements.txt",
+    "remoteUser": "vscode"
+}
